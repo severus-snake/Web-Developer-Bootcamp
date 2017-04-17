@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!-- My CSS Code -->
-    <link href="./custom.css" rel="stylesheet">
+    <link href="custom.css" rel="stylesheet">
 
     <!-- FontAwesome CDN Code -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -32,32 +32,105 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#" class="navbar-brand navbar-left"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Home -
-                Top of Page</a>
+            <a href="#Top" class="navbar-brand navbar-left"><i class="fa fa-home" aria-hidden="true"></i></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-nav-demo">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Sign Up</a></li>
-                <li><a href="#">Login</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Resume">Resume</a></li>
+                <li><a href="#Portfolio">Portfolio</a></li>
+                <li><a href="#Contact">Contact</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
 <!-- Header -->
-<header id="top" class="header">
+<header id="Top" class="header">
     <div class="text-vertical-center">
-        <h1><strong>Hi I'm Eric Andrade</strong></h1>
-        <h3>and YES, you've come to the right place!</h3>
-        <hr class="hr">
-        <a href="#" class="btn btn-dark btn-lg">Find Out More</a>
+            <h1><strong>Hi I'm Eric Andrade</strong></h1>
+            <h3>and YES, you've come to the right place!</h3>
+            <hr class="hr">
+            <a href="#About" class="btn btn-dark btn-lg">Who Am I?</a>
     </div>
 </header>
 
+<section id="About">
+    <div class="container text-center">
+        <h1><i class="fa fa-star-half" aria-hidden="true"></i> About Me <i class="fa fa-star-half fa-flip-horizontal" aria-hidden="true"></i></h1>
+        <hr class="hr">
+        <p>Here's some cool facts about me</p>
+    </div>
+</section>
 
+<section id="Resume">
+    <div class="container">
+        <div class="row">
+            <div class="text-center">
+                <h1><i class="fa fa-briefcase" aria-hidden="true"></i> Work
+                    I've done <i class="fa fa-briefcase" aria-hidden="true"></i></h1>
+                <hr class="hr">
+                <p>Insert resume here</p>
+            </div>
+        </div>
+    </div>
+</section>
 
+<section id="Portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1><i class="fa fa-magic" aria-hidden="true"></i> My
+                    Portfolio
+                    <i class="fa fa-magic fa-flip-horizontal"
+                       aria-hidden="true"></i></h1>
+                <hr class="hr">
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="thumbnail">
+                    <img src="http://i.imgur.com/qK42fUu.jpg">
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="thumbnail">
+                    <img src="http://i.imgur.com/qK42fUu.jpg">
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="thumbnail">
+                    <img src="http://i.imgur.com/qK42fUu.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="Contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1><i class="fa fa-whatsapp" aria-hidden="true"></i> Contact
+                    Me <i class="fa fa-whatsapp" aria-hidden="true"></i></h1>
+                <hr class="hr">
+            </div>
+            <div class="col-lg-10 col-lg-offset-1 text-center">
+                <h4>Eric Andrade</h4>
+                <p>1136 Harvard Street <br> Santa Monica, CA 90403</p>
+                <ul class="list-unstyled">
+                    <li>
+                        <i class="fa fa-phone fa-fw"></i>
+                        <a href="tel:+19098379409">(909)837-9409</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-envelope-o fa-fw"></i>
+                        <a href="mailto:eandrade21@gmail.com">eandrade21
+                            @gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
