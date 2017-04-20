@@ -17,7 +17,7 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    background: url(img/bg2.jpg) no-repeat center center scroll;
+    background: url("img/bg_web4.jpg") no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -69,4 +69,31 @@ body {
 .btn-light:active {
     color: #333;
     background-color: rgba(255,255,255,0.8);
+}
+
+/* Custom sizes for the different sections */
+
+#About {
+    margin: 5% 5%;
+}
+
+#Resume {
+    margin: 5% 5%;
+}
+
+#Portfolio {
+    margin: 5% 5%;
+}
+
+#Portfolio div.thumbnail {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+#Contact {
+    margin: 5% 5%;
+}
+
+.copyright {
+
 }
