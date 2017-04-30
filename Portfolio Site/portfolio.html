@@ -85,12 +85,34 @@
                     <i class="fa fa-magic fa-flip-horizontal"
                        aria-hidden="true"></i></h1>
                 <hr class="hr">
-                <a href="#Portfolio"><div class="col-lg-6 col-sm-6 thumbnail project1">
+                <a href="#Project1"><div class="col-lg-6 col-sm-6 thumbnail project1">
                     <img src="http://i.imgur.com/qK42fUu.jpg">
                 </div></a>
-                <a href="#Portfolio"><div class="col-lg-6 col-sm-6 thumbnail project2">
+
+                <a href="#Project2"><div class="col-lg-6 col-sm-6 thumbnail project2">
                     <img src="http://i.imgur.com/qK42fUu.jpg">
                 </div></a>
+
+                <div id="board" class="moleProject">
+                    <div id="mole">
+                        <div id="eyeline">
+                            <div class="eye"></div>
+                            <div class="eye"></div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="project1 button">
+                    <button type="button" onclick="dig(); ">Click to
+                        Start</button>
+                </div>
+                <br>
+                <div><button type="button" onclick="$('button').hide();
+                $('.moleProject').hide();
+                $('.thumbnail').show();">
+                    Click here when finished
+                </button>
+                </div>
             </div>
         </div>
     </div>
@@ -133,9 +155,7 @@
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="script.js"></script>
 </body>
