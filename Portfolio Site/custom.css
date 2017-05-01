@@ -22,6 +22,7 @@ body {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    margin-bottom: 5vh;
 }
 
 .text-vertical-center {
@@ -74,15 +75,15 @@ body {
 /* Custom sizes for the different sections */
 
 #About {
-    margin: 5% 5%;
+    margin-bottom: 5vh;
 }
 
-#Resume {
-    margin: 5% 5%;
+section#Resume {
+    margin-bottom: 5vh;
 }
 
 #Portfolio {
-    margin: 5% 5%;
+
 }
 
 #Portfolio div.thumbnail {
@@ -94,7 +95,7 @@ button {
 }
 
 #Contact {
-    margin: 5% 5%;
+
 }
 
 .copyright {

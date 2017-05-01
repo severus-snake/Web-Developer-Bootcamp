@@ -80,7 +80,7 @@ function randomPosition () {
     function checkHeightResult(){
         if (randomResultHeight <= heightValue-molePxSize && randomResultHeight >= molePxSize){
             return $('#mole').css('top', randomResultHeight + "px");
-        } else if (randomResultHeight === 0) {
+        } else if (heightValue === 0) {
             return 0;
         } else if (randomResultHeight > heightValue || randomResultHeight < molePxSize) {
             randomResultHeight = Math.floor(Math.random() * heightValue);
