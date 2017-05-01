@@ -1,3 +1,9 @@
+var project1Button = $('.project1 button');
+var project2Button = $('.project2 button');
+var project1FinishedButton = $('.escape button');
+
+var timesProject1ButtonClicked = 0;
+
 
 // logic to make portfolio templates disappear and load projects
 
@@ -11,20 +17,24 @@ $('.thumbnail').click(function() {
         console.log('This is project 1');
 
         //hides the anchor tag so you can't reactivate this code
-        $('#Project1').hide();
+        //$('#Project1').hide();
 
         // insert project into the div here
         $('#board').css('visibility', 'visible');
-        $('#mole').css('visibility', 'visible');
         $('.moleProject').show();
 
         // Make button visible
-        $('button').css('visibility', 'visible');
-    }
+        if (timesProject1ButtonClicked === 0){
+            project1Button.show();
+            project1Button.css('visibility', 'visible');
+            timesProject1ButtonClicked++;
+        }
 
-    if(objClicked.hasClass('project2') === true){
-        console.log('This is project 2'); //tests that this works with thumbnail
-        $('#Project2').hide();
+        project1FinishedButton.show();
+        project1FinishedButton.css('visibility', 'visible');
+
+    }   else if(objClicked.hasClass('project2') === true){
+            console.log('This is project 2'); //tests that this works with thumbnail
     }
 });
 
@@ -58,7 +68,9 @@ function randomPosition () {
     function checkWidthResult(){
         if (randomResultWidth <= widthValue-molePxSize){
             return $('#mole').css('left', randomResultWidth + "px");
-        } else if (randomResultWidth >= widthValue || randomResultWidth < molePxSize) {
+        } else if (widthValue === 0){
+            return 0;
+        } else if (randomResultWidth > widthValue || randomResultWidth < molePxSize) {
             randomResultWidth = Math.floor(Math.random() * widthValue);
             console.log("random width revised to " + randomResultWidth);
             return checkWidthResult();
@@ -68,7 +80,9 @@ function randomPosition () {
     function checkHeightResult(){
         if (randomResultHeight <= heightValue-molePxSize && randomResultHeight >= molePxSize){
             return $('#mole').css('top', randomResultHeight + "px");
-        } else if (randomResultHeight >= heightValue || randomResultHeight < molePxSize) {
+        } else if (randomResultHeight === 0) {
+            return 0;
+        } else if (randomResultHeight > heightValue || randomResultHeight < molePxSize) {
             randomResultHeight = Math.floor(Math.random() * heightValue);
             console.log("random height revised to " + randomResultHeight);
             return checkHeightResult();
@@ -89,10 +103,10 @@ function dig() {
     $('#mole').animate({
         top: '+=' + 50 + 'px',
         height: 'toggle'
-    },1000);
+    },500);
     window.setTimeout(function(){
         resurface();
-    }, 1500);
+    }, 1000);
 }
 
 function resurface () {
@@ -100,8 +114,8 @@ function resurface () {
     $('#mole').animate({
         top: '-=' + 50 + 'px',
         height: 'toggle'
-    },1000);
+    },500);
     window.setTimeout(function(){
         dig();
-    }, 1500);
+    }, 1000);
 }

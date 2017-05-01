@@ -12,7 +12,7 @@
     <title>Eric Andrade - Portfolio</title>
 
     <!-- Bootstrap CSS code -->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- My CSS Code -->
     <link href="custom.css" rel="stylesheet">
@@ -20,8 +20,11 @@
     <!-- FontAwesome CDN Code -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
+
 </head>
 <body>
+
+<!-- Navbar -->
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -32,7 +35,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#Top" class="navbar-brand navbar-left"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="#Top" class="navbar-brand navbar-left"><i class="fa fa-home"                     aria-hidden="true"></i></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-nav-demo">
             <ul class="nav navbar-nav navbar-right">
@@ -103,15 +106,19 @@
                 </div>
                 <br>
                 <div class="project1 button">
-                    <button type="button" onclick="dig(); ">Click to
-                        Start</button>
+                    <button type="button" onclick="
+                    dig();
+                    $('.project1 button').hide();"> Click to Start
+                    </button>
                 </div>
                 <br>
-                <div><button type="button" onclick="$('button').hide();
-                $('.moleProject').hide();
-                $('.thumbnail').show();">
-                    Click here when finished
-                </button>
+                <div class="escape button">
+                    <button type="button" onclick="
+                    $('.escape button').hide();
+                    $('.moleProject').hide();
+                    $('.thumbnail').show();">
+                        Click here when finished
+                    </button>
                 </div>
             </div>
         </div>
@@ -149,15 +156,22 @@
     <div class="container">
         <div class="row">
             <div class="copyright col-lg-12 text-center">
-                <p class="text-muted">Copyright &copy; Eric Andrade 2017</p>
+                <p class="text-muted">Copyright &copy; Eric Andrade
+                    2017</p>
             </div>
         </div>
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="script.js"></script>
-</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+</script>
 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+</script>
+
+<script src="script.js"></script>
+
+</body>
 </html>
