@@ -90,7 +90,11 @@ section#Resume {
     margin-top: 5vh;
 }
 
-button {
+.project1.button {
+    visibility: hidden;
+}
+
+.escape.button {
     visibility: hidden;
 }
 
@@ -103,6 +107,10 @@ button {
 }
 
 /* Whack-a-Mole CSS */
+
+.moleProject {
+    visibility: hidden;
+}
 
 .eye {
     width: 10px;
@@ -129,10 +137,8 @@ button {
 
 #board {
     position: relative;
-    margin-top: 5vh;
     border: 5px solid black;
     background-color: navy;
-    visibility: hidden;
     height: 50vh;
 }
 

@@ -1,36 +1,36 @@
-var project1Button = $('.project1 button');
-var project2Button = $('.project2 button');
-var project1FinishedButton = $('.escape button');
+'use strict';
 
-var timesProject1ButtonClicked = 0;
+var project1Button = $('.project1.button');
+//var project2Button = $('.project2 .button');
+var project1FinishedButton = $('.escape.button');
+var mole = $('#mole');
+var moleProject = $('.moleProject');
+var thumbnail = $('.thumbnail');
+var board = $('#board');
+
+
+var project1Started = 0;
+var project1ButtonIsVisible = false;
 
 
 // logic to make portfolio templates disappear and load projects
 
-$('.thumbnail').click(function() {
+thumbnail.click(function() {
     var objClicked = $(this);
     console.log(objClicked);
-    $('.thumbnail').hide();
+    thumbnail.css('visibility', 'hidden');
 
     if(objClicked.hasClass('project1') === true){
-        //tests that this works with thumbnail
-        console.log('This is project 1');
-
-        //hides the anchor tag so you can't reactivate this code
-        //$('#Project1').hide();
+        project1Started = 0;
+        mole.css('top', '0px');
+        mole.css('left', '0px');
 
         // insert project into the div here
-        $('#board').css('visibility', 'visible');
-        $('.moleProject').show();
+        moleProject.css('visibility', 'visible');
 
         // Make button visible
-        if (timesProject1ButtonClicked === 0){
-            project1Button.show();
-            project1Button.css('visibility', 'visible');
-            timesProject1ButtonClicked++;
-        }
-
-        project1FinishedButton.show();
+        project1Button.css('visibility', 'visible');
+        project1ButtonIsVisible = true;
         project1FinishedButton.css('visibility', 'visible');
 
     }   else if(objClicked.hasClass('project2') === true){
@@ -40,20 +40,18 @@ $('.thumbnail').click(function() {
 
 //Whack-a-Mole Script
 
-var board = $('#board');
-
 $(window).click(function () {
     console.log('board width = ' + board.width());
     console.log('board height = ' + board.height());
 });
 
-function randomPosition () {
+function randomPosition() {
 
     //randomize where the mole where show up and make sure it doesn't leave the board
     var molePxSize = 50;
+
     var widthValue = Math.floor(board.width());
     var heightValue = Math.floor(board.height());
-
 
     var randomResultWidth = Math.floor(Math.random() * widthValue);
     var randomResultHeight = Math.floor(Math.random() * heightValue);
@@ -67,7 +65,7 @@ function randomPosition () {
     //return the randomized result object that moves the mole
     function checkWidthResult(){
         if (randomResultWidth <= widthValue-molePxSize){
-            return $('#mole').css('left', randomResultWidth + "px");
+            return mole.css('left', randomResultWidth + "px");
         } else if (widthValue === 0){
             return 0;
         } else if (randomResultWidth > widthValue || randomResultWidth < molePxSize) {
@@ -79,7 +77,7 @@ function randomPosition () {
 
     function checkHeightResult(){
         if (randomResultHeight <= heightValue-molePxSize && randomResultHeight >= molePxSize){
-            return $('#mole').css('top', randomResultHeight + "px");
+            return mole.css('top', randomResultHeight + "px");
         } else if (heightValue === 0) {
             return 0;
         } else if (randomResultHeight > heightValue || randomResultHeight < molePxSize) {
@@ -95,27 +93,50 @@ function randomBodyColor(){
 }
 
 // clicking changes the mole to a random color
-$('#mole').click(function() {
-    $('#mole').css('background-color', randomBodyColor());
+mole.click(function() {
+    mole.css('background-color', randomBodyColor());
 });
 
+function myEscape(){
+    if (project1ButtonIsVisible === true){
+        project1Button.css('visibility', 'hidden');
+    }
+    project1Started++;
+    project1FinishedButton.css('visibility', 'hidden');
+    moleProject.css('visibility', 'hidden');
+    thumbnail.css('visibility', 'visible');
+    console.log('top is ' + mole.css('top'));
+    console.log('left is ' + mole.css('left'));
+}
+
 function dig() {
-    $('#mole').animate({
-        top: '+=' + 50 + 'px',
-        height: 'toggle'
-    },500);
-    window.setTimeout(function(){
-        resurface();
-    }, 1000);
+    project1Button.css('visibility', 'hidden');
+    if (project1Started === 0) {
+        mole.animate({
+            top: '+=' + 50 + 'px',
+            height: 'toggle'
+        }, 500);
+        window.setTimeout(function () {
+            resurface();
+        }, 1000);
+    }
 }
 
 function resurface () {
-    randomPosition();
-    $('#mole').animate({
-        top: '-=' + 50 + 'px',
-        height: 'toggle'
-    },500);
-    window.setTimeout(function(){
-        dig();
-    }, 1000);
+    // add some logic here to stop randomPosition from continuing
+    if (project1Started === 0) {
+        randomPosition();
+        mole.animate({
+            top: '-=' + 50 + 'px',
+            height: 'toggle'
+        },500);
+        window.setTimeout(function(){
+            dig();
+        }, 1000);
+    } else {
+        mole.animate({
+            top: '-=' + 50 + 'px',
+            height: 'toggle'
+        },500);
+    }
 }
