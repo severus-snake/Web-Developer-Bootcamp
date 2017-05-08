@@ -8,6 +8,21 @@ body {
 
 body {
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+}
+
+/* navbar styling */
+
+.navbar {
+
+}
+
+.navbar-brand {
+    font-size: 2em;
+}
+
+.navbar-right {
+    font-size: 1.5em;
 }
 
 /* Header Style */
@@ -75,15 +90,17 @@ body {
 /* Custom sizes for the different sections */
 
 #About {
+    padding: 50px 0;
     margin-bottom: 5vh;
 }
 
-section#Resume {
+#Resume {
+    padding: 50px 0;
     margin-bottom: 5vh;
 }
 
 #Portfolio {
-
+    padding: 50px 0;
 }
 
 #Portfolio div.thumbnail {
@@ -99,6 +116,7 @@ section#Resume {
 }
 
 #Contact {
+    padding: 50px 0;
 
 }
 
