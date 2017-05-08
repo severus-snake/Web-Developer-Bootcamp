@@ -91,11 +91,11 @@ section#Resume {
 }
 
 .project1.button {
-    visibility: hidden;
+    display: none;
 }
 
 .escape.button {
-    visibility: hidden;
+    display: none;
 }
 
 #Contact {
@@ -109,7 +109,8 @@ section#Resume {
 /* Whack-a-Mole CSS */
 
 .moleProject {
-    visibility: hidden;
+    display: none;
+    margin-bottom: 5vh;
 }
 
 .eye {

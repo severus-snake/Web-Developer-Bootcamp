@@ -9,7 +9,7 @@ var thumbnail = $('.thumbnail');
 var board = $('#board');
 
 
-var project1Started = 0;
+var project1Started = true;
 var project1ButtonIsVisible = false;
 
 
@@ -18,20 +18,26 @@ var project1ButtonIsVisible = false;
 thumbnail.click(function() {
     var objClicked = $(this);
     console.log(objClicked);
-    thumbnail.css('visibility', 'hidden');
+    thumbnail.css('display', 'none');
 
     if(objClicked.hasClass('project1') === true){
-        project1Started = 0;
+        //resets the global variable
+        if(project1Started === false) {
+            project1Started = true;
+        }
+
+        //set location of mole
         mole.css('top', '0px');
         mole.css('left', '0px');
 
-        // insert project into the div here
-        moleProject.css('visibility', 'visible');
+        // make board project visible
+        moleProject.css('display', 'block');
 
-        // Make button visible
-        project1Button.css('visibility', 'visible');
+
+        // Make start and escape button visible
+        project1Button.css('display', 'block');
         project1ButtonIsVisible = true;
-        project1FinishedButton.css('visibility', 'visible');
+        project1FinishedButton.css('display', 'block');
 
     }   else if(objClicked.hasClass('project2') === true){
             console.log('This is project 2'); //tests that this works with thumbnail
@@ -40,10 +46,12 @@ thumbnail.click(function() {
 
 //Whack-a-Mole Script
 
-$(window).click(function () {
+
+//This tests the board size at different window sizes
+/*$(window).click(function () {
     console.log('board width = ' + board.width());
     console.log('board height = ' + board.height());
-});
+});*/
 
 function randomPosition() {
 
@@ -56,8 +64,8 @@ function randomPosition() {
     var randomResultWidth = Math.floor(Math.random() * widthValue);
     var randomResultHeight = Math.floor(Math.random() * heightValue);
 
-    console.log('Result Width = ' + randomResultWidth);
-    console.log('Result Height = ' + randomResultHeight);
+    //console.log('Result Width = ' + randomResultWidth);
+    //console.log('Result Height = ' + randomResultHeight);
 
     checkWidthResult();
     checkHeightResult();
@@ -99,44 +107,42 @@ mole.click(function() {
 
 function myEscape(){
     if (project1ButtonIsVisible === true){
-        project1Button.css('visibility', 'hidden');
+        project1Button.css('display', 'none');
     }
-    project1Started++;
-    project1FinishedButton.css('visibility', 'hidden');
-    moleProject.css('visibility', 'hidden');
-    thumbnail.css('visibility', 'visible');
-    console.log('top is ' + mole.css('top'));
-    console.log('left is ' + mole.css('left'));
+    project1Started = false;
+    project1FinishedButton.css('display', 'none');
+    moleProject.css('display', 'none');
+    thumbnail.css('display', 'block');
 }
 
 function dig() {
-    project1Button.css('visibility', 'hidden');
-    if (project1Started === 0) {
+    project1Button.css('display', 'none');
+    if (project1Started === true) {
         mole.animate({
             top: '+=' + 50 + 'px',
             height: 'toggle'
-        }, 500);
+        }, 250);
         window.setTimeout(function () {
             resurface();
-        }, 1000);
+        }, 500);
     }
 }
 
 function resurface () {
     // add some logic here to stop randomPosition from continuing
-    if (project1Started === 0) {
+    if (project1Started === true) {
         randomPosition();
         mole.animate({
             top: '-=' + 50 + 'px',
             height: 'toggle'
-        },500);
+        },250);
         window.setTimeout(function(){
             dig();
-        }, 1000);
+        }, 500);
     } else {
         mole.animate({
             top: '-=' + 50 + 'px',
             height: 'toggle'
-        },500);
+        },250);
     }
 }
