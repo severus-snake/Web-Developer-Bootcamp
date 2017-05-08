@@ -8,14 +8,18 @@ body {
 
 body {
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
 
+.footer-col {
+    margin-bottom: 5vh;
+}
+
+.footer-col h3{
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 3em;
 }
 
 /* navbar styling */
-
-.navbar {
-
-}
 
 .navbar-brand {
     font-size: 2em;
@@ -60,6 +64,14 @@ body {
 }
 
 /* Custom Button Styles */
+
+.btn-social {
+    font-size: 2.5em;
+}
+
+.list-unstyled {
+    font-size: 18px;
+}
 
 .btn-dark {
     border-radius: 0;
@@ -121,7 +133,7 @@ body {
 }
 
 .copyright {
-
+    font-size: 1.5em;
 }
 
 /* Whack-a-Mole CSS */

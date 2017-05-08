@@ -64,6 +64,7 @@ function randomPosition() {
     var randomResultWidth = Math.floor(Math.random() * widthValue);
     var randomResultHeight = Math.floor(Math.random() * heightValue);
 
+    //This shows the results of the randomization in the console
     //console.log('Result Width = ' + randomResultWidth);
     //console.log('Result Height = ' + randomResultHeight);
 
@@ -96,14 +97,15 @@ function randomPosition() {
     }
 }
 
-function randomBodyColor(){
-    return '#' + Math.floor(Math.random()*16777215).toString(16);
-}
-
 // clicking changes the mole to a random color
 mole.click(function() {
     mole.css('background-color', randomBodyColor());
 });
+
+//Returns a random hexadecimal calculation and appends it to an octothorp
+function randomBodyColor(){
+    return '#' + Math.floor(Math.random()*16777215).toString(16);
+}
 
 function myEscape(){
     if (project1ButtonIsVisible === true){
