@@ -7,13 +7,15 @@ var mole = $('#mole');
 var moleProject = $('.moleProject');
 var thumbnail = $('.thumbnail');
 var board = $('#board');
+var score = $('#score');
+var playerScore = 0;
 
 
 var project1Started = true;
 var project1ButtonIsVisible = false;
 
 
-// logic to make portfolio templates disappear and load projects
+// logic to make portfolio thumbnails disappear and load projects in DOM space
 
 thumbnail.click(function() {
     var objClicked = $(this);
@@ -32,6 +34,8 @@ thumbnail.click(function() {
 
         // make board project visible
         moleProject.css('display', 'block');
+        score.css('display', 'block');
+        score.html('Player Score: ' + playerScore);
 
 
         // Make start and escape button visible
@@ -44,7 +48,7 @@ thumbnail.click(function() {
     }
 });
 
-//Whack-a-Mole Script
+//Whack-a-Mole Project 1 Script
 
 
 //This tests the board size at different window sizes
@@ -100,23 +104,32 @@ function randomPosition() {
 // clicking changes the mole to a random color
 mole.click(function() {
     mole.css('background-color', randomBodyColor());
+    addPoint();
 });
 
-//Returns a random hexadecimal calculation and appends it to an octothorp
+//Returns a random hexadecimal calculation and concatenates it to an octothorp
 function randomBodyColor(){
     return '#' + Math.floor(Math.random()*16777215).toString(16);
 }
 
-function myEscape(){
+//Defines project 1 escape button
+function myProject1Escape(){
     if (project1ButtonIsVisible === true){
         project1Button.css('display', 'none');
     }
     project1Started = false;
     project1FinishedButton.css('display', 'none');
     moleProject.css('display', 'none');
+    score.html('');
+    score.css('display', 'none');
+    playerScore = 0;
     thumbnail.css('display', 'block');
 }
 
+//Defines project 2 escape button
+//function myProject2Escape(){}
+
+//The endless randomization loop of the mole
 function dig() {
     project1Button.css('display', 'none');
     if (project1Started === true) {
@@ -147,4 +160,11 @@ function resurface () {
             height: 'toggle'
         },250);
     }
+}
+
+//This function adds the score to the game
+function addPoint() {
+    playerScore++;
+    score.html('');
+    score.html('Player Score: ' + playerScore);
 }
