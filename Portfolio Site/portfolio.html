@@ -20,6 +20,9 @@
     <!-- FontAwesome CDN Code -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
+    <!-- Firepad CSS -->
+    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.css" />
+
 
 </head>
 <body>
@@ -115,18 +118,52 @@
                     </div>
                 </div>
 
-                <br>
-                <p id="score">Player Score:</p>
+                <div class="learnitnow col-lg-12">
+
+                    <h1>WELCOME TO LEARN IT NOW!</h1>
+
+                    <h2></h2>
+                    <br>
+                    <div id="firepad"></div>
+
+                    <form>
+                        Create your room name:
+                        <br>
+                        <input id="roomname" type="text" name="roomname">
+                        <br><br>
+                        <button id="submit" href="#firepad">Go to Room</button>
+                        <br><br>
+                    </form>
+
+                    <p>To get started, please type in a room name. When you
+                        click on "go to room" you will be put into the chat
+                        room you typed in. Currently there are no usernames
+                        for the chatrooms. To switch rooms, you need to
+                        reload the page. I'm working on an asynchronous solution to this issue!
+                        Happy chatting!</p>
+
+                </div>
+
                 <br>
 
+                <p id="score">Player Score:</p>
+
+                <br>
                 <div class="project1 button">
                     <button type="button" onclick="dig();">
                         Click to Start </button>
                 </div>
+
                 <br>
                 <div class="escape button">
-                    <button type="button" onclick="myProject1Escape();"> Click here
-                        when finished </button>
+                    <button type="button" onclick="myProject1Escape();">
+                        Click here when finished with this project </button>
+                </div>
+
+                <br>
+                <div class="escape2 button">
+                    <button type="button" onclick="myProject2Escape();">
+                        Click here when finished with this project </button>
                 </div>
             </div>
         </div>
@@ -193,13 +230,26 @@
     </div>
 </footer>
 
+<!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous">
 </script>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous">
 </script>
+
+<!-- Firebase JS -->
+<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+
+<!-- Ace JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ace.js"></script>
+
+<!-- Firepad JS -->
+<script src="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.min.js"></script>
 
 <script src="script.js"></script>
 

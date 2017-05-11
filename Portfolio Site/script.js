@@ -1,7 +1,6 @@
 'use strict';
 
-var project1Button = $('.project1.button');
-//var project2Button = $('.project2 .button');
+var project1StartButton = $('.project1.button');
 var project1FinishedButton = $('.escape.button');
 var mole = $('#mole');
 var moleProject = $('.moleProject');
@@ -10,9 +9,18 @@ var board = $('#board');
 var score = $('#score');
 var playerScore = 0;
 
-
 var project1Started = true;
 var project1ButtonIsVisible = false;
+var project2ButtonIsVisible = false;
+
+
+var learnItNowProj = $('.learnitnow');
+var project2Submit = $('#submit');
+var firepad = $('#firepad');
+var project2ElH2 = $('h2');
+var project2Form = $('form');
+var project2ElPText = $('.learnitnow p');
+var project2FinishedButton = $('.escape2.button');
 
 
 // logic to make portfolio thumbnails disappear and load projects in DOM space
@@ -39,12 +47,15 @@ thumbnail.click(function() {
 
 
         // Make start and escape button visible
-        project1Button.css('display', 'block');
+        project1StartButton.css('display', 'block');
         project1ButtonIsVisible = true;
         project1FinishedButton.css('display', 'block');
 
     }   else if(objClicked.hasClass('project2') === true){
-            console.log('This is project 2'); //tests that this works with thumbnail
+
+        learnItNowProj.css('display', 'block');
+        project2FinishedButton.css('display', 'block');
+        project2ButtonIsVisible = true;
     }
 });
 
@@ -115,7 +126,7 @@ function randomBodyColor(){
 //Defines project 1 escape button
 function myProject1Escape(){
     if (project1ButtonIsVisible === true){
-        project1Button.css('display', 'none');
+        project1StartButton.css('display', 'none');
     }
     project1Started = false;
     project1FinishedButton.css('display', 'none');
@@ -126,12 +137,9 @@ function myProject1Escape(){
     thumbnail.css('display', 'block');
 }
 
-//Defines project 2 escape button
-//function myProject2Escape(){}
-
 //The endless randomization loop of the mole
 function dig() {
-    project1Button.css('display', 'none');
+    project1StartButton.css('display', 'none');
     if (project1Started === true) {
         mole.animate({
             top: '+=' + 50 + 'px',
@@ -167,4 +175,58 @@ function addPoint() {
     playerScore++;
     score.html('');
     score.html('Player Score: ' + playerScore);
+}
+
+//Project 2 Firebase Collaboration Chat Room
+
+// Initialize Firebase.
+var config = {
+    apiKey: "AIzaSyC-UmzZh1QBe61yc9cdAoEITJfN3v_P0ZQ",
+    authDomain: "fir-firsttest-5635d.firebaseapp.com",
+    databaseURL: "https://fir-firsttest-5635d.firebaseio.com",
+    storageBucket: "fir-firsttest-5635d.appspot.com",
+    messagingSenderId: "931278023084"
+};
+
+firebase.initializeApp(config);
+var firebaseDb = firebase.database();
+
+
+function setup(roomName) {
+    // Set Firebase Database reference.
+    var fireOb = firebaseDb.ref(roomName);
+    firepadInit('firepad', fireOb);
+}
+
+function firepadInit(ACEdom, fireOb) {
+    // Create Ace editor.
+    var aceEditor = ace.edit(ACEdom);
+
+    // Create Firepad.
+    Firepad.fromACE(fireOb, aceEditor);
+}
+
+project2Submit.click(function () {
+    var roomName = $('input').val();
+
+    if (roomName === '' && userName === '') {
+        alert("Please do not enter a blank name");
+    } else {
+        project2Submit.css('display', 'none');
+        project2Form.css('display', 'none');
+        project2ElPText.css('display', 'none');
+        project2ElH2.append("Your Room Topic Is:" + " " + '<span>'+roomName+'</span>');
+        firepad.css('display', 'block');
+        setup(roomName);
+
+    }
+});
+
+//Defines project 2 escape button
+function myProject2Escape(){
+    if (project2ButtonIsVisible === true){
+        project2FinishedButton.css('display', 'none');
+    }
+    learnItNowProj.css('display', 'none');
+    thumbnail.css('display', 'block');
 }

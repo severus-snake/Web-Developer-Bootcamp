@@ -136,7 +136,7 @@ body {
     font-size: 1.5em;
 }
 
-/* Whack-a-Mole CSS */
+/* Project 1 Whack-a-Mole CSS */
 
 .moleProject {
     display: none;
@@ -182,4 +182,66 @@ body {
 h1 {
     text-align: center;
     font-family: 'Georgia', sans-serif;
+}
+
+/* Project 2 Firebase Collaboration Chat Room CSS */
+
+.learnitnow {
+    display: none;
+}
+
+.escape2.button{
+    display: none;
+}
+
+#firepad {
+
+    display: none;
+    position: relative;
+    margin: 0 auto;
+    width: 70vw;
+    height: 50vh;
+    background-color: #f62;
+    font-size: 1em;
+}
+
+.learnitnow .ace-tm .ace_print-margin {
+    width: 0;
+}
+
+.learnitnow h1 {
+
+    color: black;
+    text-align: center;
+    font-size: 50px;
+}
+
+.learnitnow h2 {
+
+    color: black;
+    text-align: center;
+    font-size: 40px;
+}
+
+.learnitnow p {
+    text-align: center;
+    font-size: 1.5em;
+    color: black;
+}
+
+.learnitnow form {
+    text-align: center;
+    font-family: "Droid Sans", sans-serif;
+    font-size: 3em;
+}
+
+.learnitnow span {
+    color: red;
+}
+
+.learnitnow input {
+    font-family: "Droid Sans", sans-serif;
+    color: white;
+    font-size: 1em;
+    background-color: black;
 }
