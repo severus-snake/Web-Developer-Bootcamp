@@ -114,8 +114,12 @@ function randomPosition() {
 
 // clicking changes the mole to a random color
 mole.click(function() {
-    mole.css('background-color', randomBodyColor());
-    addPoint();
+    if(mole.css('top') === '0px' && mole.css('left') === '0px'){
+        alert('Please start the game first.')
+    } else {
+        mole.css('background-color', randomBodyColor());
+        addPoint();
+    }
 });
 
 //Returns a random hexadecimal calculation and concatenates it to an octothorp
@@ -209,8 +213,13 @@ function firepadInit(ACEdom, fireOb) {
 project2Submit.click(function () {
     var roomName = $('input').val();
 
-    if (roomName === '' && userName === '') {
+    // TODO: Find a way to prevent the user from abusing spacing and using symbols
+
+    if (roomName === '' || roomName === ' ') {
         alert("Please do not enter a blank name");
+    } else if (roomName.includes('.', '>', '<', ',' ,'/', '?', '"', "'", '[', ']', '{', '}', '|' ,';' ,
+            ':', '=', '+', '-', '_', ')', '(', '*', '&', '^', '%', '$', '#', '@', '!', '`', '~', ' ')){
+        alert('Please do not include symbols or spaces in the room name');
     } else {
         project2Submit.css('display', 'none');
         project2Form.css('display', 'none');
