@@ -21,6 +21,7 @@ var project2ElH2 = $('h2');
 var project2Form = $('form');
 var project2ElPText = $('.learnitnow p');
 var project2FinishedButton = $('.escape2.button');
+var project2Input = $('input');
 
 
 // logic to make portfolio thumbnails disappear and load projects in DOM space
@@ -213,21 +214,20 @@ function firepadInit(ACEdom, fireOb) {
 project2Submit.click(function () {
     var roomName = $('input').val();
 
-    // TODO: Find a way to prevent the user from abusing spacing and using symbols
+    project2Submit.css('display', 'none');
+    project2Form.css('display', 'none');
+    project2ElPText.css('display', 'none');
+    project2ElH2.append("Your Room Topic Is:" + " " + '<span>'+roomName+'</span>');
+    firepad.css('display', 'block');
+    setup(roomName);
+});
 
-    if (roomName === '' || roomName === ' ') {
-        alert("Please do not enter a blank name");
-    } else if (roomName.includes('.', '>', '<', ',' ,'/', '?', '"', "'", '[', ']', '{', '}', '|' ,';' ,
-            ':', '=', '+', '-', '_', ')', '(', '*', '&', '^', '%', '$', '#', '@', '!', '`', '~', ' ')){
-        alert('Please do not include symbols or spaces in the room name');
-    } else {
-        project2Submit.css('display', 'none');
-        project2Form.css('display', 'none');
-        project2ElPText.css('display', 'none');
-        project2ElH2.append("Your Room Topic Is:" + " " + '<span>'+roomName+'</span>');
-        firepad.css('display', 'block');
-        setup(roomName);
-
+project2Input.keydown(function(e){
+    if ($.inArray(e.keyCode, [46, 8]) !== -1) {
+        return;
+    } else if (e.shiftKey || e.keyCode < 48 || e.keyCode > 57 && e.keyCode < 65 || e.keyCode > 90
+            && e.keyCode < 97 || e.keyCode > 122) {
+            e.preventDefault();
     }
 });
 
