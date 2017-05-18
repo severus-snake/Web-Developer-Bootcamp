@@ -55,8 +55,10 @@ thumbnail.click(function() {
     }   else if(objClicked.hasClass('project2') === true){
 
         learnItNowProj.css('display', 'block');
-        project2FinishedButton.css('display', 'block');
-        project2ButtonIsVisible = true;
+
+        if(project2ButtonIsVisible === true){
+            project2FinishedButton.css('display', 'block');
+        }
     }
 });
 
@@ -189,37 +191,43 @@ var config = {
     apiKey: "AIzaSyC-UmzZh1QBe61yc9cdAoEITJfN3v_P0ZQ",
     authDomain: "fir-firsttest-5635d.firebaseapp.com",
     databaseURL: "https://fir-firsttest-5635d.firebaseio.com",
+    projectId: "fir-firsttest-5635d",
     storageBucket: "fir-firsttest-5635d.appspot.com",
     messagingSenderId: "931278023084"
 };
 
 firebase.initializeApp(config);
-var firebaseDb = firebase.database();
 
+//TODO: Figure out how to get firepad to load properly after user submits roomname (the first time)
 
-function setup(roomName) {
-    // Set Firebase Database reference.
-    var fireOb = firebaseDb.ref(roomName);
-    firepadInit('firepad', fireOb);
+function setup(roomName){
+    // Passing Firebase Database reference.
+    var fireRef = firebase.database().ref();
+    // Set Firebase Database reference to user input
+    fireRef.child('Rooms').set(roomName);
+    return firepadInit('firepad', fireRef);
 }
 
-function firepadInit(ACEdom, fireOb) {
+function firepadInit(ACEdom, fireRef) {
     // Create Ace editor.
     var aceEditor = ace.edit(ACEdom);
 
     // Create Firepad.
-    Firepad.fromACE(fireOb, aceEditor);
+    return Firepad.fromACE(fireRef, aceEditor);
 }
 
 project2Submit.click(function () {
     var roomName = $('input').val();
+    setup(roomName);
 
     project2Submit.css('display', 'none');
     project2Form.css('display', 'none');
     project2ElPText.css('display', 'none');
     project2ElH2.append("Your Room Topic Is:" + " " + '<span>'+roomName+'</span>');
     firepad.css('display', 'block');
-    setup(roomName);
+    project2ButtonIsVisible = true;
+    project2FinishedButton.css('display', 'block');
+
 });
 
 project2Input.keydown(function(e){
