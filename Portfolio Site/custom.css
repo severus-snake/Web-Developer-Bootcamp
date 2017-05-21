@@ -19,7 +19,7 @@ body {
     font-size: 3em;
 }
 
-/* navbar styling */
+/* Navbar styling */
 
 .navbar-brand {
     font-size: 2em;
@@ -143,6 +143,11 @@ body {
     margin-bottom: 5vh;
 }
 
+.moleProject h1 {
+    text-align: center;
+    font-family: 'Georgia', sans-serif;
+}
+
 .eye {
     width: 10px;
     height: 10px;
@@ -179,10 +184,9 @@ body {
     display: none;
 }
 
-h1 {
-    text-align: center;
-    font-family: 'Georgia', sans-serif;
-}
+
+
+
 
 /* Project 2 Firebase Collaboration Chat Room CSS */
 

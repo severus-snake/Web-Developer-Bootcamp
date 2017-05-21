@@ -23,12 +23,17 @@ var project2ElPText = $('.learnitnow p');
 var project2FinishedButton = $('.escape2.button');
 var project2Input = $('input');
 
+// Toggles Bootstrap Navbar when a list item is clicked
+$('.nav a').on('click', function(){
+    if($('.navbar-toggle').css('display') !== 'none'){
+        $(".navbar-toggle").trigger( "click" );
+    }
+});
 
 // logic to make portfolio thumbnails disappear and load projects in DOM space
 
 thumbnail.click(function() {
     var objClicked = $(this);
-    console.log(objClicked);
     thumbnail.css('display', 'none');
 
     if(objClicked.hasClass('project1') === true){
@@ -135,6 +140,7 @@ function myProject1Escape(){
     if (project1ButtonIsVisible === true){
         project1StartButton.css('display', 'none');
     }
+    mole.css('background-color', 'rebeccapurple');
     project1Started = false;
     project1FinishedButton.css('display', 'none');
     moleProject.css('display', 'none');
@@ -183,6 +189,9 @@ function addPoint() {
     score.html('');
     score.html('Player Score: ' + playerScore);
 }
+
+
+
 
 //Project 2 Firebase Collaboration Chat Room
 
