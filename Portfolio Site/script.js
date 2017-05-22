@@ -57,6 +57,7 @@ thumbnail.click(function() {
         project1ButtonIsVisible = true;
         project1FinishedButton.css('display', 'block');
 
+
     }   else if(objClicked.hasClass('project2') === true){
 
         learnItNowProj.css('display', 'block');
@@ -206,14 +207,14 @@ var config = {
 };
 
 firebase.initializeApp(config);
+var firebaseDB = firebase.database();
 
 //TODO: Figure out how to get firepad to load properly after user submits roomname (the first time)
 
 function setup(roomName){
     // Passing Firebase Database reference.
-    var fireRef = firebase.database().ref();
+    var fireRef = firebaseDB.ref(roomName);
     // Set Firebase Database reference to user input
-    fireRef.child('Rooms').set(roomName);
     return firepadInit('firepad', fireRef);
 }
 
@@ -227,7 +228,7 @@ function firepadInit(ACEdom, fireRef) {
 
 project2Submit.click(function () {
     var roomName = $('input').val();
-    setup(roomName);
+
 
     project2Submit.css('display', 'none');
     project2Form.css('display', 'none');
@@ -236,6 +237,8 @@ project2Submit.click(function () {
     firepad.css('display', 'block');
     project2ButtonIsVisible = true;
     project2FinishedButton.css('display', 'block');
+
+    return setup(roomName);
 
 });
 
