@@ -10,14 +10,9 @@ body {
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-.footer-col {
-    margin-bottom: 5vh;
-}
 
-.footer-col h3{
-    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 3em;
-}
+
+
 
 /* Navbar styling */
 
@@ -28,6 +23,10 @@ body {
 .navbar-right {
     font-size: 1.5em;
 }
+
+
+
+
 
 /* Header Style */
 
@@ -62,6 +61,11 @@ body {
     border-top: 2px solid black;
     width: 20%;
 }
+
+
+
+
+
 
 /* Custom Button Styles */
 
@@ -99,7 +103,12 @@ body {
     background-color: rgba(255,255,255,0.8);
 }
 
-/* Custom sizes for the different sections */
+
+
+
+
+
+/* Custom sizing for the different sections */
 
 #About {
     padding: 50px 0;
@@ -119,22 +128,15 @@ body {
     margin-top: 5vh;
 }
 
-.project1.button {
-    display: none;
-}
-
-.escape.button {
-    display: none;
-}
-
 #Contact {
     padding: 50px 0;
 
 }
 
-.copyright {
-    font-size: 1.5em;
-}
+
+
+
+
 
 /* Project 1 Whack-a-Mole CSS */
 
@@ -184,6 +186,16 @@ body {
     display: none;
 }
 
+.project1.button {
+    display: none;
+}
+
+.escape.button {
+    display: none;
+}
+
+
+
 
 
 
@@ -199,7 +211,6 @@ body {
 }
 
 #firepad {
-
     display: none;
     position: relative;
     margin: 0 auto;
@@ -248,4 +259,24 @@ body {
     color: white;
     font-size: 1em;
     background-color: black;
+}
+
+
+
+
+
+
+/* Footer Styles */
+
+.footer-col {
+    margin-bottom: 5vh;
+}
+
+.footer-col h3{
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 3em;
+}
+
+.copyright {
+    font-size: 1.5em;
 }
