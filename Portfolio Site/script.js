@@ -1,5 +1,6 @@
 'use strict';
 
+var navBarToggle = $('.navbar-toggle');
 var project1StartButton = $('.project1.button');
 var project1FinishedButton = $('.escape.button');
 var mole = $('#mole');
@@ -25,8 +26,8 @@ var project2Input = $('input');
 
 // Toggles Bootstrap Navbar when a list item is clicked
 $('.nav a').on('click', function(){
-    if($('.navbar-toggle').css('display') !== 'none'){
-        $(".navbar-toggle").trigger( "click" );
+    if(navBarToggle.css('display') !== 'none'){
+        navBarToggle.trigger( "click" );
     }
 });
 
@@ -68,18 +69,28 @@ thumbnail.click(function() {
     }
 });
 
-//Whack-a-Mole Project 1 Script
+// Whack-a-Mole Project 1 Script
 
-
+/*
 //This tests the board size at different window sizes
-/*$(window).click(function () {
+
+$(window).click(function () {
     console.log('board width = ' + board.width());
     console.log('board height = ' + board.height());
-});*/
+});
+*/
 
 function randomPosition() {
 
+    /*
+     //This shows the results of the randomization in the console
+
+     console.log('Result Width = ' + randomResultWidth);
+     console.log('Result Height = ' + randomResultHeight);
+     */
+
     //randomize where the mole where show up and make sure it doesn't leave the board
+
     var molePxSize = 50;
 
     var widthValue = Math.floor(board.width());
@@ -88,14 +99,12 @@ function randomPosition() {
     var randomResultWidth = Math.floor(Math.random() * widthValue);
     var randomResultHeight = Math.floor(Math.random() * heightValue);
 
-    //This shows the results of the randomization in the console
-    //console.log('Result Width = ' + randomResultWidth);
-    //console.log('Result Height = ' + randomResultHeight);
 
     checkWidthResult();
     checkHeightResult();
 
     //return the randomized result object that moves the mole
+
     function checkWidthResult(){
         if (randomResultWidth <= widthValue-molePxSize){
             return mole.css('left', randomResultWidth + "px");
@@ -122,6 +131,7 @@ function randomPosition() {
 }
 
 // clicking changes the mole to a random color
+
 mole.click(function() {
     if(mole.css('top') === '0px' && mole.css('left') === '0px'){
         alert('Please start the game first.')
@@ -132,11 +142,13 @@ mole.click(function() {
 });
 
 //Returns a random hexadecimal calculation and concatenates it to an octothorp
+
 function randomBodyColor(){
     return '#' + Math.floor(Math.random()*16777215).toString(16);
 }
 
-//Defines project 1 escape button
+//Defines project 1 escape button logic
+
 function myProject1Escape(){
     if (project1ButtonIsVisible === true){
         project1StartButton.css('display', 'none');
@@ -151,7 +163,8 @@ function myProject1Escape(){
     thumbnail.css('display', 'block');
 }
 
-//The endless randomization loop of the mole
+//These functions determine the mole's location on the board and animate the mole
+
 function dig() {
     project1StartButton.css('display', 'none');
     if (project1Started === true) {
@@ -184,7 +197,8 @@ function resurface () {
     }
 }
 
-//This function adds the score to the game
+//This function appends the player's game score to the p element in the project 1 DOM space
+
 function addPoint() {
     playerScore++;
     score.html('');
