@@ -35,7 +35,7 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    background: url("img/bg_web2.jpg") no-repeat center center scroll;
+    background: url("img/bg_web2.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -111,21 +111,23 @@ body {
 /* Custom sizing for the different sections */
 
 #About {
+    height: 100vh;
     padding: 50px 0;
     margin-bottom: 5vh;
 }
 
 #Resume {
+    height: 100vh;
     padding: 50px 0;
-    margin-bottom: 5vh;
 }
 
 #Resume iframe{
-    height: 100vh;
+    height: 80vh;
     width: 100%;
 }
 
 #Portfolio {
+    height: 100vh;
     padding: 50px 0;
 }
 
@@ -134,8 +136,8 @@ body {
 }
 
 #Contact {
+    height: 75vh;
     padding: 50px 0;
-
 }
 
 
@@ -272,10 +274,6 @@ body {
 
 
 /* Footer Styles */
-
-.footer-col {
-    margin-bottom: 5vh;
-}
 
 .footer-col h3{
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
